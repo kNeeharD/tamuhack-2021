@@ -30,7 +30,12 @@ while True:
         people_through_security = 0
         cycle = 0
         estimated_wait_mins = current_people / processing_rate if processing_rate != 0 else 100000
-        ##SEND POST with this number
+        file='data.txt' 
+        with open(file, 'w') as filetowrite:
+            filetowrite.write('%.3f'%estimated_wait_mins)
+        f = open("demofile2.txt", "a")
+        f.write("Now the file has more content!")
+        f.close()
         print('est wait -> %.3f' % estimated_wait_mins) # debug output
     print(current_people) # debug output
     if utime() - reset_time > 5000: # every 5 seconds
